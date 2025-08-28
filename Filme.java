@@ -4,12 +4,12 @@ import java.util.Map;
 public class Filme {
     private String titulo;
     private String genero;
-    private String premio;  // Lista de dicionários
 
-    public Filme(String titulo, String genero, String premio) {
+
+    public Filme(String titulo, String genero) {
         this.titulo = titulo;
         this.genero = genero;
-        this.premio = premio;
+
     }
 
     public String getTitulo() {
@@ -17,13 +17,6 @@ public class Filme {
     }
 
 
-    public String getPremio() {
-        return premio;
-    }
-
-    public void setPremio(String premio) {
-        this.premio = premio;
-    }
 
 
 }

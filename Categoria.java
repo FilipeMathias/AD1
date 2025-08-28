@@ -1,25 +1,17 @@
-public abstract class Categoria {
+public class Categoria {
     private String nome;
-    private Filme filme;
-    private Cerimonia cerimonia;
+    private String tipo;
 
-    public Categoria(String nome, Filme filme, Cerimonia cerimonia) {
+    public Categoria(String nome, String tipo) {
         this.nome = nome;
-        this.filme = filme;
-        this.cerimonia = cerimonia;
+        this.tipo = tipo;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public Filme getFilme() {
-        return filme;
+    public String getTipo() {
+        return tipo;
     }
-
-    public Cerimonia getCerimonia() {
-        return cerimonia;
-    }
-
-    public abstract String criarEquipe();
 }

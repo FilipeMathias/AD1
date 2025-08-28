@@ -4,14 +4,12 @@ import java.util.List;
 public class Cerimonia {
     private String nome;
     private LocalDate data;
-    private String tipo;
-    private int participantes;
 
-    public Cerimonia(String nome, LocalDate data, String tipo, int participantes) {
+
+    public Cerimonia(String nome, LocalDate data) {
         this.nome = nome;
         this.data = data;
-        this.tipo = tipo;
-        this.participantes = participantes;
+
     }
 
     public String getNome() {
@@ -19,11 +17,5 @@ public class Cerimonia {
     }
 
 
-    public String getTipo() {
-        return tipo;
-    }
 
-    public String premiar(Filme filme){
-      return filme.setPremio();
-    }
 }

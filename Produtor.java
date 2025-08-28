@@ -1,9 +1,9 @@
 public class Produtor {
     private String nome;
-    private String idade;
+    private int idade;
     private String nacionalidade;
 
-    public Produtor(String nome, String idade, String nacionalidade) {
+    public Produtor(String nome, int idade, String nacionalidade) {
         this.nome = nome;
         this.idade = idade;
         this.nacionalidade = nacionalidade;
@@ -13,7 +13,7 @@ public class Produtor {
         this.nome = nome;
     }
 
-    public void setIdade(String idade) {
+    public void setIdade(int idade) {
         this.idade = idade;
     }
 
@@ -25,7 +25,7 @@ public class Produtor {
         return nome;
     }
 
-    public String getIdade() {
+    public int getIdade() {
         return idade;
     }
 
