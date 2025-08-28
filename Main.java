@@ -1,4 +1,3 @@
-import javax.xml.transform.Result;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -80,16 +79,7 @@ public class Main {
 
         CalculadoraPontuacao calculadoraPontuacao = new CalculadoraPontuacao(relatorio.gerar(), premio1, premio2, premio3);
 
-
-
-        for (String[] linha : filmes) {
-            for(String item: linha){
-                System.out.print(item + " /");
-            }
-            System.out.println();
-
-        }
-
+        TipoParticipante tipoParticipante =new TipoParticipante(relatorio.gerar(), equipe.adicionarProdutores(), "equipe");
 
         for (String[] linha : equipe.adicionarProdutores()) {
             for(String item: linha){
@@ -98,6 +88,7 @@ public class Main {
             System.out.println();
 
         }
+
 
 
 
@@ -110,8 +101,26 @@ public class Main {
 
         }
 
+
         calculadoraPontuacao.calcular();
         System.out.print(calculadoraPontuacao.toString());
+
+        System.out.println();
+
+        for (String[] linha : tipoParticipante.escolher()) {
+            for(String item: linha){
+                System.out.print(item + " /");
+            }
+            System.out.println();
+
+
+        }
+
+
+
+
+
+
 
 
 
