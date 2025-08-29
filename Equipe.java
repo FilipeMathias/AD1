@@ -12,7 +12,7 @@ public class Equipe {
         this.produtores = new ArrayList<>();
     }
 
-    public List<String[]> adicionarProdutores() {
+    public List<String[]> criarEquipe() {
         String equipe;
 
         for (int i = 0; i < participantes.size() - 1 && quantidadeProdutores > 0; i++) {

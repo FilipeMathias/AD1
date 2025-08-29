@@ -1,15 +1,18 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
 
-
+        Scanner scanner = new Scanner(System.in);
         List<String[]> filmes = new ArrayList<>();
         List<String[]> resultados = new ArrayList<>();
+
+
 
         Filme filme1 = new Filme("Poderoso Chefão", "Drama");
         Filme filme2 = new Filme("Gladiador","Ação");
@@ -75,55 +78,80 @@ public class Main {
         resultados.addAll(planilhaResultados6.inserir());
 
 
-        Relatorio relatorio = new Relatorio(filme3, resultados);
 
-        CalculadoraPontuacao calculadoraPontuacao = new CalculadoraPontuacao(relatorio.gerar(), premio1, premio2, premio3);
 
-        TipoParticipante tipoParticipante =new TipoParticipante(relatorio.gerar(), equipe.adicionarProdutores(), "equipe");
+        System.out.println("Deseja gerar relatório por:");
+        System.out.println("1 - Filme");
+        System.out.println("2 - Equipe");
+        int escolha = Integer.parseInt(scanner.nextLine());
 
-        for (String[] linha : equipe.adicionarProdutores()) {
-            for(String item: linha){
-                System.out.print(item + " /");
+        if (escolha == 1) {
+            // Relatório por filme
+            Relatorio relatorio1 = new Relatorio(filme1, resultados);
+            CalculadoraPontuacao calculadoraPontuacao1 = new CalculadoraPontuacao(relatorio1.gerar(),
+                    premio1, premio2, premio3);
+
+            System.out.println("\n=== RELATÓRIO POR FILME 1 ===");
+            for (String[] linha : relatorio1.gerar()) {
+                for (String item : linha) {
+                    System.out.print(item + " / ");
+                }
+                System.out.println();
             }
-            System.out.println();
+
+            calculadoraPontuacao1.calcular();
+            System.out.println(calculadoraPontuacao1.toString());
+
+            Relatorio relatorio2 = new Relatorio(filme2, resultados);
+            CalculadoraPontuacao calculadoraPontuacao2 = new CalculadoraPontuacao(relatorio2.gerar(),
+                    premio1, premio2, premio3);
+
+            System.out.println("\n=== RELATÓRIO POR FILME 2 ===");
+            for (String[] linha : relatorio2.gerar()) {
+                for (String item : linha) {
+                    System.out.print(item + " / ");
+                }
+                System.out.println();
+            }
+
+            calculadoraPontuacao2.calcular();
+            System.out.println(calculadoraPontuacao2.toString());
+
+            Relatorio relatorio3 = new Relatorio(filme3, resultados);
+            CalculadoraPontuacao calculadoraPontuacao3 = new CalculadoraPontuacao(relatorio3.gerar(),
+                    premio1, premio2, premio3);
+
+            System.out.println("\n=== RELATÓRIO POR FILME 3 ===");
+            for (String[] linha : relatorio3.gerar()) {
+                for (String item : linha) {
+                    System.out.print(item + " / ");
+                }
+                System.out.println();
+            }
+
+            calculadoraPontuacao3.calcular();
+            System.out.println(calculadoraPontuacao3.toString());
+
+        } else {
+            // Relatório por equipe
+            Relatorio relatorioEquipe = new Relatorio(filme3, resultados);
+            CalculadoraPontuacao calculadoraPontuacaoEquipe = new CalculadoraPontuacao(relatorioEquipe.gerar(),
+                    premio1, premio2, premio3);
+            TipoParticipante tipoParticipanteEquipe = new TipoParticipante(
+                    relatorioEquipe.gerar(), equipe.criarEquipe(), "equipe"
+            );
+
+            System.out.println("\n=== RELATÓRIO POR EQUIPE ===");
+            for (String[] linha : tipoParticipanteEquipe.escolher()) {
+                for (String item : linha) {
+                    System.out.print(item + " / ");
+                }
+                System.out.println();
+            }
+            calculadoraPontuacaoEquipe.calcular();
+            System.out.println(calculadoraPontuacaoEquipe.toString());
+
 
         }
-
-
-
-
-        for (String[] linha : relatorio.gerar()) {
-            for(String item: linha){
-                System.out.print(item + " /");
-            }
-            System.out.println();
-
-
-        }
-
-
-        calculadoraPontuacao.calcular();
-        System.out.print(calculadoraPontuacao.toString());
-
-        System.out.println();
-
-        for (String[] linha : tipoParticipante.escolher()) {
-            for(String item: linha){
-                System.out.print(item + " /");
-            }
-            System.out.println();
-
-
-        }
-
-
-
-
-
-
-
-
-
-
     }
 }
